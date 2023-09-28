@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
@@ -7,7 +8,7 @@ const flash = require('connect-flash');
 const methodoverride = require('method-override')
 
 const app = express();
-const Port = process.env.Port || 3000;
+
 
 require("dotenv").config();
 
@@ -30,13 +31,14 @@ app.use(fileUpload());
 
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 
 
 const routes = require('./server/routes/recipeRoutes.js');
 app.use('/', routes);
 
-app.listen(Port, ()=> console.log('Listening to port ${port}'));
+app.listen(process.env.PORT, ()=> console.log(`Listening to port ${process.env.PORT}`));
 
 
 
