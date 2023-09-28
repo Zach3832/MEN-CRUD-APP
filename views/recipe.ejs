@@ -1,0 +1,121 @@
+<% if(recipe != null ) { %>
+ 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/Categories">Categories</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><%- recipe.name %></li>
+          <li class="breadcrumb-item"><a href="/edit-recipe/<%= recipe._id %>">Update</a></li>
+          <li class="breadcrumb-item"><a href="/delete-recipe/<%= recipe._id %>">Delete</a></li>
+        </ol>
+      </nav>
+
+      <style>
+      
+        /* Styling for the main container */
+        .recipe-container {
+          background-color: #f8f9fa;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+      
+        /* Styling for the recipe title */
+        .recipe-title {
+          font-size: 28px;
+          color: #333;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+          border-bottom: 2px solid #333;
+          padding-bottom: 5px;
+        }
+      
+        /* Styling for the recipe category */
+        .recipe-category {
+          font-style: italic;
+          color: #666;
+        }
+      
+        /* Styling for the cooking instructions */
+        .instructions-heading {
+          font-size: 20px;
+          color: #333;
+          margin-top: 20px;
+        }
+      
+        .recipe-description {
+          font-size: 16px;
+          line-height: 1.5;
+          color: #555;
+        }
+      
+        /* Styling for the ingredients */
+        .ingredients-heading {
+          font-size: 20px;
+          color: #333;
+          margin-top: 20px;
+        }
+      
+        .ingredient-item {
+          font-size: 16px;
+          color: #444;
+          padding: 5px 0;
+        }
+      
+        /* Styling for the image */
+        .recipe-image {
+          max-height: 300px;
+          object-fit: cover;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+      </style>
+      
+      <div class="container recipe-container">
+        <div class="row">
+          <div class="col-12 col-md-8">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="recipe-title"><%- recipe.name %></h1>
+              </div>
+              <div class="col-12 mb-4">
+                <i class="bi bi-tag"></i> <span class="recipe-category"><%- recipe.category %></span>
+              </div>
+              <div class="col-12" style="white-space: pre-line;">
+                <h4 class="instructions-heading">Cooking Instructions</h4>
+                <p class="recipe-description"><%- recipe.description %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <img src="/uploads/<%- recipe.image %>" class="img-fluid recipe-image" alt="<%- recipe.name %>" loading="lazy">
+          </div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-12">
+            <h4 class="ingredients-heading">Ingredients</h4>
+            <ul class="list-group list-group-flush">
+              <% recipe.ingredients.forEach(function(ingredient, index){ %>
+                <li class="list-group-item ingredient-item"><%= ingredient %></li>
+              <% }) %>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      
+      
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ <% } %>   

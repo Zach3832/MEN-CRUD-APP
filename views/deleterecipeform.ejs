@@ -1,0 +1,14 @@
+<h1 class="pb-4">Update</h1>
+
+<form action="/update-recipe/<%= recipe._id %>" enctype="multipart/form-data" method="POST">
+
+    <div class="col-12">
+        <label for="name" class="form-label">Recipe Name</label>
+        <input type="text" name="name" id="name" value="<%= recipe.name %>" class="form-control" required>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary btn-dark">Delete Recipe</button>
+      </div>
+
+</form>
